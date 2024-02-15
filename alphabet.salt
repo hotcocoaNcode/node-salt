@@ -1,0 +1,11 @@
+cnst v0 65 ; ASCII "A"
+jmrk loopStart
+outp v0 ; Print out
+incr v0 ; Increment
+cnst v1 10 ; Get ASCII newline ready
+outp v1
+cnst v1 91 ; ASCII for Z + 1
+less v0 v1 ; Compare
+cnst v1 loopStart ; Get jump constant
+imul v2 v1 ; Multiply true/false by jump constant
+swap v2 v3 ; Swap jump constant and program counter, if the loop is over the program will jump to index 1 and close because the constant's first upper four bits is a 0 (exit)
